@@ -1,0 +1,38 @@
+.floating-field {
+    -fx-font-family: "Roboto Regular";
+    -fx-font-weight: 400;
+    -fx-font-size: 16px;
+    -fx-line-spacing: 24px;
+    -fx-text-fill: -md-sys-color-on-surface;
+}
+
+.floating-field > .layout {
+    -fx-border-color: -md-sys-color-outline;
+    -fx-border-radius: 10px;
+    -fx-padding: 8px 12px 8px 12px;
+}
+
+.floating-field > .layout > .label {
+    -fx-font-family: "Roboto Regular";
+    -fx-font-weight: 400;
+    -fx-font-size: 12px;
+    -fx-line-spacing: 16px;
+}
+
+.floating-field > .layout > .label:center {
+    -fx-font-family: "Roboto Regular";
+    -fx-font-weight: 400;
+    -fx-font-size: 16px;
+    -fx-line-spacing: 24px;
+}
+
+.floating-field:focus-within > .layout {
+    -fx-border-color: -md-sys-color-primary;
+    -fx-border-width: 2px;
+    -fx-border-insets: -1px;
+}
+
+.floating-field:focus-within > .layout > .label {
+    -fx-text-fill: -md-sys-color-primary;
+}
+

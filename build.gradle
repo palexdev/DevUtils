@@ -1,0 +1,77 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version "$jfxPlugin"
+    id 'org.beryx.jlink' version "$jlink"
+}
+
+group = 'io.github.palexdev'
+version = "$devUtils"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit"
+    testImplementation "org.testfx:testfx-junit5:$testfx"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit"
+
+    implementation "fr.brouillard.oss:cssfx:$cssfx"
+    implementation "io.github.palexdev:materialfx:$mfx"
+    implementation "io.github.palexdev:mfxcomponents:$mfxcomponents"
+    implementation "io.github.palexdev:mfxcore:$mfxcore"
+    implementation "io.github.palexdev:mfxeffects:$mfxeffects"
+    implementation "io.github.palexdev:mfxlocalization:$mfxlocalization"
+    implementation "io.github.palexdev:mfxresources:$mfxresources"
+    implementation "io.github.palexdev:virtualizedfx:$vfx"
+
+    // TODO change this
+    implementation "io.github.palexdev:scenicview:$scenicView"
+}
+
+configurations {
+    testImplementation.extendsFrom compileOnly
+}
+
+javafx {
+    version = "$jfx"
+    modules = ["javafx.controls", "javafx.fxml"]
+}
+
+compileJava {
+    sourceCompatibility = "$jdk"
+    targetCompatibility = "$jdk"
+}
+
+compileTestJava {
+    moduleOptions {
+        compileOnClasspath = true
+    }
+}
+
+test {
+    useJUnitPlatform()
+    moduleOptions {
+        runOnClasspath = true
+    }
+}
+
+application {
+    mainModule = "DevUtils"
+    mainClass = "io.github.palexdev.devutils.App"
+    applicationDefaultJvmArgs += ["-Dglass.disableGrab=true"]
+}
+
+// Enable Preview Features
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += "--enable-preview"
+}
+
+tasks.withType(Test).configureEach {
+    jvmArgs += "--enable-preview"
+}
+
+tasks.withType(JavaExec).configureEach {
+    jvmArgs += '--enable-preview'
+}

@@ -1,0 +1,236 @@
+@import "Palette.css";
+
+.icomoon-view {
+    -fx-background-color: -md-sys-color-surface-container-low;
+    -fx-background-radius: 20px;
+    -fx-padding: 8px;
+}
+
+.icomoon-view .st-icon .mfx-font-icon {
+    -mfx-color: -md-sys-color-on-primary-container
+}
+
+.icomoon-view .st-icon:hover {
+    -fx-background-color: -md-sys-color-primary;
+}
+
+.icomoon-view .st-icon:hover .mfx-font-icon {
+    -mfx-color: white;
+}
+
+.icomoon-view .grid {
+    -fx-padding: 32px;
+    -fx-hgap: 18px;
+}
+
+.icomoon-view .grid VBox {
+    -fx-background-color: -md-sys-color-surface-container-high;
+    -fx-background-radius: 20px;
+    -fx-padding: 12px;
+}
+
+.icomoon-view .grid .title {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 500;
+    -fx-font-size: 16px;
+    -fx-line-spacing: 24px;
+    -fx-text-fill: -md-sys-color-on-surface;
+    -fx-background-color: -md-sys-color-surface-bright;
+    -fx-background-radius: 10px;
+    -fx-background-insets: 0px 0px 12px 0px;
+    -fx-alignment: CENTER;
+    -fx-padding: 12px 0px 24px 0px;
+    -fx-max-width: 120px;
+}
+
+.icomoon-view .grid .valid-label {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 500;
+    -fx-font-size: 14px;
+    -fx-line-spacing: 20px;
+    -fx-text-fill: -md-sys-color-on-surface;
+    -fx-background-color: -md-sys-color-surface-bright;
+    -fx-background-radius: 10px;
+    -fx-padding: 12px;
+}
+
+.icomoon-view .grid .valid-label .mfx-font-icon {
+    -mfx-size: 24px;
+    -mfx-color: #99cc33;
+}
+
+.icomoon-view .grid .virtual-scroll-pane {
+    -fx-border-color: -md-sys-color-outline-variant;
+    -fx-border-radius: 20px;
+    -fx-clip-border-radius: 40px;
+    -fx-layout-mode: COMPACT;
+}
+
+.icomoon-view .grid HBox {
+    -fx-min-height: 64px;
+}
+
+.icomoon-view .grid .floating-field .layout {
+    -fx-background-color: -md-sys-color-surface-bright;
+    -fx-background-radius: 10px;
+}
+
+/* Dialogs */
+.mfx-dialog {
+    -fx-background-color: -md-sys-color-surface-container;
+    -fx-background-radius: 20px;
+    -fx-border-color: -md-sys-color-outline;
+    -fx-border-radius: 20px;
+    -fx-padding: 12px;
+    -fx-min-height: 600px;
+}
+
+.mfx-dialog HBox {
+    -fx-padding: 0px 0px 12px 0px;
+}
+
+.mfx-dialog .actions-pane {
+    -fx-padding: 12px 0px 0px 0px;
+}
+
+.mfx-dialog .mfx-icon-wrapper {
+    -fx-background-color: #5b5c63;
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
+}
+
+.mfx-dialog .mfx-font-icon {
+    -mfx-color: white;
+    -mfx-size: 13px;
+    -fx-opacity: 0.0;
+}
+
+.mfx-dialog .mfx-icon-wrapper:hover .mfx-font-icon {
+    -fx-opacity: 1.0;
+}
+
+.mfx-dialog #close:hover,
+.mfx-dialog:focus-within #close {
+    -fx-background-color: #ff4a2d;
+}
+
+.text-area {
+    -fx-font-family: "Roboto Regular";
+    -fx-font-weight: 400;
+    -fx-font-size: 12px;
+    -fx-line-spacing: 16px;
+    -fx-text-fill: -md-sys-color-on-surface;
+    -fx-background-color: transparent;
+    -fx-border-color: -md-sys-color-outline-variant;
+    -fx-border-radius: 20px;
+    -fx-padding: 6px;
+
+    -track-color: rgb(230, 230, 230);
+    -thumb-color: rgb(137, 137, 137);
+    -thumb-hover-color: rgb(89, 88, 91);
+}
+
+.text-area .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport .content {
+    -fx-background-color: transparent;
+}
+
+.text-area .corner {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-bar,
+.text-area .scroll-bar .decrement-arrow,
+.text-area .scroll-bar .increment-arrow {
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}
+
+
+.text-area .scroll-bar:horizontal .increment-button,
+.text-area .scroll-bar:horizontal .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0.0em;
+    -fx-padding: 0.0 0.0 10.0 0.0;
+}
+
+.text-area .scroll-bar:vertical .increment-button,
+.text-area .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0.0em;
+    -fx-padding: 0.0 10.0 0.0 0.0;
+
+}
+
+.text-area .scroll-bar .increment-arrow,
+.text-area .scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0.15em 0.0;
+}
+
+.text-area .scroll-bar:horizontal .increment-arrow,
+.text-area .scroll-bar:horizontal .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0.0 0.05em;
+}
+
+.text-area .scroll-bar:vertical .increment-arrow,
+.text-area .scroll-bar:vertical .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0.0 0.05em;
+}
+
+/* Customize ScrollBars */
+
+.text-area .scroll-bar:horizontal .track {
+    -fx-background-color: -track-color;
+    -fx-border-color: transparent;
+    -fx-background-radius: 2.0em;
+    -fx-border-radius: 2.0em;
+    -fx-background-insets: 3;
+}
+
+.text-area .scroll-bar:vertical .track {
+    -fx-background-color: -track-color;
+    -fx-border-color: transparent;
+    -fx-background-radius: 2.0em;
+    -fx-border-radius: 2.0em;
+    -fx-background-insets: 3;
+}
+
+.text-area .scroll-bar .decrement-arrow,
+.text-area .scroll-bar .increment-arrow {
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}
+
+.text-area .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 12;
+    -fx-pref-height: 12;
+    -fx-padding: 5 0.5 5 0.5;
+}
+
+.text-area .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-pref-width: 12;
+    -fx-pref-height: 12;
+    -fx-padding: 0.5 5 0.5 5;
+}
+
+.text-area .scroll-bar:horizontal .thumb,
+.text-area .scroll-bar:vertical .thumb {
+    -fx-background-color: -thumb-color;
+    -fx-background-insets: 2.0, 0.0, 0.0;
+    -fx-background-radius: 2.0em;
+}
+
+.text-area .scroll-bar:horizontal .thumb:hover,
+.text-area .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: -thumb-hover-color;
+    -fx-background-insets: 1.5, 0.0, 0.0;
+    -fx-background-radius: 2.0em;
+}

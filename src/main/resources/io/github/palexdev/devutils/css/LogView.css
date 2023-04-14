@@ -1,0 +1,35 @@
+.log-view .virtual-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-smooth-scroll: true;
+    -fx-track-smooth-scroll: true;
+}
+
+.log-view .virtual-flow {
+    -fx-cell-size: 30px;
+}
+
+.log-view .log-cell {
+    -fx-font-family: "Roboto Regular";
+    -fx-font-weight: 400;
+    -fx-font-size: 13px;
+    -fx-line-spacing: 20px;
+    -fx-fill: -md-sys-color-on-primary;
+    -fx-background-color: rgba(13, 202, 240, 0.3);
+    -fx-padding: 0px 10px 0px 10px;
+    -fx-alignment: CENTER;
+}
+
+.log-view .log-cell:error {
+    -fx-background-color: -md-sys-color-error;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.log-view .log-cell:warn {
+    -fx-background-color: #FFDDB0;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.log-view .log-cell:ok {
+    -fx-background-color: #CAFFBA;
+    -fx-alignment: CENTER_LEFT;
+}
