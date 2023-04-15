@@ -7,8 +7,13 @@
     -fx-padding: 32px;
 }
 
+#home-view .row {
+    -fx-spacing: 24px;
+    -fx-alignment: CENTER;
+}
+
 #home-view > .grid-separator {
-    -fx-min-height: 24px;
+    -fx-min-height: 36px;
 }
 
 #home-view .header {

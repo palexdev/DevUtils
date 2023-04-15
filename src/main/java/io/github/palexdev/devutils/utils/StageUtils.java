@@ -52,7 +52,7 @@ public class StageUtils {
 
 	public static Size getWindowSizes() {
 		Size ws = Size.of(800, 600);
-		String windowSizes = SettingsDB.WINDOW_SIZES.get("800,600");
+		String windowSizes = SettingsDB.WINDOW_SIZES.get();
 		try {
 			String[] tmp = windowSizes.split(",");
 			ws.setWidth(Double.parseDouble(tmp[0]));

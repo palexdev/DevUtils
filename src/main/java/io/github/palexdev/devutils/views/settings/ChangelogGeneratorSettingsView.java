@@ -4,38 +4,40 @@ import io.github.palexdev.devutils.Resources;
 import io.github.palexdev.devutils.components.SettingsPane;
 import io.github.palexdev.devutils.settings.descriptors.DescriptorType;
 import io.github.palexdev.devutils.settings.descriptors.SettingDescriptor;
+import io.github.palexdev.devutils.views.ChangelogGeneratorView;
 import io.github.palexdev.devutils.views.MainView;
 
-import static io.github.palexdev.devutils.settings.SettingsDB.USERNAME;
+import static io.github.palexdev.devutils.settings.SettingsDB.CHANGELOG_DATE_FORMATTER;
 
-public class AppSettingsView extends SettingsView {
+public class ChangelogGeneratorSettingsView extends SettingsView {
     //================================================================================
     // Singleton
     //================================================================================
-    private static final AppSettingsView instance = new AppSettingsView();
+    private static final ChangelogGeneratorSettingsView instance = new ChangelogGeneratorSettingsView();
 
-    public static AppSettingsView get() {
+    public static ChangelogGeneratorSettingsView get() {
         return instance;
     }
 
     //================================================================================
     // Constructors
     //================================================================================
-    private AppSettingsView() {
+    private ChangelogGeneratorSettingsView() {
         build();
     }
 
     //================================================================================
     // Overridden Methods
     //================================================================================
+
     @Override
     protected void build() {
-        onClose = () -> MainView.get().dashboard();
+        onClose = () -> MainView.get().setView(ChangelogGeneratorView.get());
         super.build();
 
-        SettingsPane sp = new SettingsPane("App Settings")
-            .addSettings(SettingDescriptor.ofNonEmpty(DescriptorType.STRING, "Username", USERNAME));
+        SettingsPane sp = new SettingsPane("Changelog Generator Settings")
+            .addSettings(SettingDescriptor.ofNonEmpty(DescriptorType.STRING, "Date Formatter", CHANGELOG_DATE_FORMATTER));
         root.setContent(sp);
-        root.getStylesheets().add(Resources.loadCss("MainView.css"));
+        root.getStylesheets().add(Resources.loadCss("ChangelogView.css"));
     }
 }

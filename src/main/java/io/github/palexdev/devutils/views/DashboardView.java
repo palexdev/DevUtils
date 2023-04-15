@@ -1,12 +1,12 @@
 package io.github.palexdev.devutils.views;
 
 import io.github.palexdev.devutils.Resources;
+import io.github.palexdev.devutils.services.ChangelogGeneratorService;
 import io.github.palexdev.devutils.services.IcoMoonToEnumService;
 import io.github.palexdev.mfxcore.builders.bindings.StringBindingBuilder;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 
 import static io.github.palexdev.devutils.settings.SettingsDB.USERNAME;
 
@@ -53,6 +53,7 @@ public class DashboardView extends View {
     // Internal Classes
     //================================================================================
     private static class DashboardViewPane extends StackPane {
+        private final GridPane root;
 
         public DashboardViewPane() {
             Label welcome = new Label();
@@ -70,24 +71,38 @@ public class DashboardView extends View {
             sub.getStyleClass().add("sub-header");
             sub.setMaxHeight(Double.MAX_VALUE);
 
-            GridPane root = new GridPane();
+            root = new GridPane();
             root.setId("home-view");
             root.add(welcome, 0, 0);
             GridPane.setColumnSpan(welcome, GridPane.REMAINING);
             root.add(sub, 0, 1);
             GridPane.setColumnSpan(sub, GridPane.REMAINING);
 
-            // Add empty separator
-            Region reg = new Region();
-            reg.getStyleClass().add("grid-separator");
-            root.add(reg, 0, 2);
-            GridPane.setColumnSpan(reg, GridPane.REMAINING);
-
             // Add Cards
-            root.add(IcoMoonToEnumService.get().toCard(), 0, 3);
+            addServicesRow(3,
+                IcoMoonToEnumService.get().toCard(),
+                ChangelogGeneratorService.get().toCard()
+            );
+
+            // Add separators where needed
+            addSeparator(2);
 
             getStylesheets().add(Resources.loadCss("DashboardView.css"));
             getChildren().add(root);
+        }
+
+        protected void addSeparator(int row) {
+            Region reg = new Region();
+            reg.getStyleClass().add("grid-separator");
+            root.add(reg, 0, row);
+            GridPane.setColumnSpan(reg, GridPane.REMAINING);
+        }
+
+        protected void addServicesRow(int row, Node... nodes) {
+            HBox box = new HBox(nodes);
+            box.getStyleClass().add("row");
+            GridPane.setHgrow(box, Priority.ALWAYS);
+            root.add(box, 0, row);
         }
     }
 }

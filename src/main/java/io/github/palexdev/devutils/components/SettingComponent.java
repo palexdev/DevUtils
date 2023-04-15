@@ -22,6 +22,7 @@ public class SettingComponent extends GridPane {
     private final SettingDescriptor descriptor;
     private final ReadOnlyStringWrapper initialValue = new ReadOnlyStringWrapper();
     private final ReadOnlyBooleanWrapper changed = new ReadOnlyBooleanWrapper(false);
+    private boolean resetOnEmpty = true;
 
     //================================================================================
     // Constructors
@@ -67,11 +68,20 @@ public class SettingComponent extends GridPane {
 
     private static SettingComponent createFieldComponent(SettingDescriptor sd, Supplier<FloatingField> fieldFactory) {
         SettingComponent sc = new SettingComponent(sd);
+        sc.setResetOnEmpty(sd.avoidEmpty());
         FloatingField field = fieldFactory.get();
         field.setFloatingText(sd.description());
         field.field().setText(sc.getInitialValue());
         field.focusWithinProperty().addListener((ob, o, n) -> {
-            if (!n) sd.setting().set(field.field().getText());
+            if (!n) {
+                String text = field.field().getText();
+                if (text.isBlank() && sc.isResetOnEmpty()) {
+                    sd.setting().reset();
+                    field.field().setText(sd.setting().get());
+                    return;
+                }
+                sd.setting().set(text);
+            }
         });
         MFXIconWrapper reset = sc.buildResetIcon();
         reset.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
@@ -127,5 +137,14 @@ public class SettingComponent extends GridPane {
 
     private void setChanged(boolean changed) {
         this.changed.set(changed);
+    }
+
+    public boolean isResetOnEmpty() {
+        return resetOnEmpty;
+    }
+
+    public SettingComponent setResetOnEmpty(boolean resetOnEmpty) {
+        this.resetOnEmpty = resetOnEmpty;
+        return this;
     }
 }

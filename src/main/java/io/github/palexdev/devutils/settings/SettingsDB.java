@@ -9,6 +9,8 @@ public enum SettingsDB {
     USERNAME("user.name", "", AppSettings::get),
     WINDOW_SIZES("window.sizes", "1024,780", AppSettings::get),
 
+    CHANGELOG_DATE_FORMATTER("changelog.datepattern", "dd-MM-yyyy", ChangelogGeneratorSettings::get),
+
     ICOMOON_LAST_OPEN_DIR("icomoon.lastopnedir", System.getProperty("user.home"), IcoMoonSettings::get),
     ICOMOON_LAST_SAVE_DIR("icomoon.lastsavedir", System.getProperty("user.home"), IcoMoonSettings::get),
     ICOMOON_PREFIX("icomoon.prefix", "", IcoMoonSettings::get),
@@ -25,12 +27,8 @@ public enum SettingsDB {
     }
 
     public String get() {
-        return get("");
-    }
-
-    public String get(String defVal) {
         Settings settings = settings();
-        String val = settings.get(key(), defVal);
+        String val = settings.get(key(), defaultVal);
         setValue(val);
         return val;
     }

@@ -16,6 +16,8 @@ import io.github.palexdev.mfxresources.base.properties.IconProperty;
 import io.github.palexdev.mfxresources.fonts.MFXFontIcon;
 import io.github.palexdev.mfxresources.fonts.MFXIconWrapper;
 import io.github.palexdev.mfxresources.fonts.fontawesome.FontAwesomeSolid;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.css.PseudoClass;
@@ -39,6 +41,7 @@ public class ServiceCard extends MFXLabeled<ServiceCardBehavior> {
     };
     private final StringProperty description = new SimpleStringProperty("");
     private final IconProperty icon = new IconProperty(new MFXFontIcon());
+    private final BooleanProperty settingsVisible = new SimpleBooleanProperty(true);
 
     //================================================================================
     // Constructors
@@ -140,6 +143,19 @@ public class ServiceCard extends MFXLabeled<ServiceCardBehavior> {
         return this;
     }
 
+    public boolean isSettingsVisible() {
+        return settingsVisible.get();
+    }
+
+    public BooleanProperty settingsVisibleProperty() {
+        return settingsVisible;
+    }
+
+    public ServiceCard setSettingsVisible(boolean settingsVisible) {
+        this.settingsVisible.set(settingsVisible);
+        return this;
+    }
+
     //================================================================================
     // Internal Classes
     //================================================================================
@@ -161,6 +177,7 @@ public class ServiceCard extends MFXLabeled<ServiceCardBehavior> {
         private final double BUTTONS_GAP = 15;
 
         protected When<String> descWhen;
+        protected When<Boolean> settWhen;
 
         public ServiceCardSkin(ServiceCard card) {
             super(card);
@@ -200,7 +217,18 @@ public class ServiceCard extends MFXLabeled<ServiceCardBehavior> {
                 .executeNow()
                 .listen();
 
-            getChildren().addAll(icon, label, actionButton, infoButton, settingsButton);
+            getChildren().addAll(icon, label, actionButton, infoButton);
+
+            settWhen = When.onChanged(card.settingsVisibleProperty())
+                .then((o, n) -> {
+                    if (n) {
+                        getChildren().add(settingsButton);
+                    } else {
+                        getChildren().remove(settingsButton);
+                    }
+                })
+                .executeNow()
+                .listen();
         }
 
         @Override
@@ -288,6 +316,9 @@ public class ServiceCard extends MFXLabeled<ServiceCardBehavior> {
         @Override
         public void dispose() {
             descWhen.dispose();
+            settWhen.dispose();
+            descWhen = null;
+            settWhen = null;
             super.dispose();
         }
     }

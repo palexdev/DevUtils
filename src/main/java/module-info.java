@@ -16,6 +16,9 @@ module DevUtils {
     // Components
     exports io.github.palexdev.devutils.components;
 
+    // Enums
+    exports io.github.palexdev.devutils.enums;
+
     // Model
     exports io.github.palexdev.devutils.model;
 

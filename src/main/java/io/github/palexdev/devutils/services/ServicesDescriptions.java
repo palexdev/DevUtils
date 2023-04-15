@@ -11,6 +11,12 @@ public class ServicesDescriptions {
         identifier in the font.
         """;
 
+    public static final String CHANGELOG_GENERATOR_SERVICE = """
+        This service's purpose it to convert a commit message from libraries such as MaterialFX or VirtualizedFX,
+        which use emojis to describe the type of changes, into a changelist that is compatible with the specs
+        described on keepachangelog.com.
+        """;
+
     //================================================================================
     // Constructors
     //================================================================================

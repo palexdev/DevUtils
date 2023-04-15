@@ -1,0 +1,28 @@
+@import "Palette.css";
+
+.changelog-view {
+    -fx-background-color: -md-sys-color-surface-container-low;
+    -fx-background-radius: 20px;
+    -fx-padding: 8px;
+}
+
+.changelog-view .st-icon .mfx-font-icon {
+    -mfx-color: -md-sys-color-on-primary-container
+}
+
+.changelog-view .st-icon:hover {
+    -fx-background-color: -md-sys-color-primary;
+}
+
+.changelog-view .st-icon:hover .mfx-font-icon {
+    -mfx-color: white;
+}
+
+.changelog-view .grid {
+    -fx-padding: 32px;
+    -fx-hgap: 18px;
+}
+
+.changelog-view .grid HBox {
+    -fx-padding: 24px 0px 0px 0px;
+}
