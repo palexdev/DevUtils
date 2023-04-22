@@ -1,0 +1,33 @@
+@import "../../fonts/Fonts.css";
+
+.service-card {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 500;
+    -fx-font-size: 14px;
+    -fx-line-spacing: 20px;
+    -fx-text-fill: -md-sys-color-primary;
+
+    -fx-background-color: -md-sys-color-background;
+    -fx-background-radius: 20px;
+    -fx-border-color: -md-sys-color-outline-variant;
+    -fx-border-radius: 20px;
+    -fx-padding: 20px;
+    -fx-min-width: 250px;
+}
+
+.service-card > .mfx-icon-wrapper {
+    -fx-border-color: -md-sys-color-outline-variant;
+    -fx-border-radius: 100%;
+    -mfx-size: 96px
+}
+
+.service-card .mfx-font-icon {
+    -mfx-size: 48px;
+    -mfx-color: -md-sys-color-primary;
+}
+
+.service-card > .mfx-button.secondary-button {
+    -fx-padding: 0px;
+    -fx-pref-width: 40px;
+    -fx-pref-height: 40px;
+}

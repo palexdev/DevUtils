@@ -1,0 +1,30 @@
+@import "../Palette.css";
+@import "../../fonts/Fonts.css";
+
+#home-view {
+    -fx-background-color: -md-sys-color-surface-container-low;
+    -fx-background-radius: 20px;
+    -fx-padding: 32px;
+}
+
+#home-view .row {
+    -fx-spacing: 24px;
+    -fx-alignment: CENTER;
+}
+
+#home-view > .grid-separator {
+    -fx-min-height: 36px;
+}
+
+#home-view .header {
+    -fx-padding: 0px 0px 6px 12px;
+}
+
+#home-view .sub-header {
+    -fx-padding: 6px 0px 0px 12px;
+}
+
+#home-view .cards {
+    -fx-alignment: CENTER;
+    -fx-hgap: 24px;
+}

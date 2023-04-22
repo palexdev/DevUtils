@@ -1,0 +1,33 @@
+@import "dialogs/Common.css";
+
+.mfx-dialog {
+    -fx-min-width: 600px;
+    -fx-max-width: 600px;
+}
+
+.mfx-dialog VBox {
+    -fx-spacing: 24px;
+}
+
+.mfx-dialog .description {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 500;
+    -fx-font-size: 14px;
+    -fx-line-spacing: 20px;
+    -fx-background-color: -md-sys-color-surface-container-lowest;
+    -fx-background-radius: 10px;
+    -fx-padding: 12px;
+}
+
+.mfx-dialog .mfx-combo-box {
+    -fx-min-width: 200px;
+}
+
+.mfx-dialog .mfx-combo-box {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 500;
+    -fx-font-size: 14px;
+    -fx-line-spacing: 20px;
+    -mfx-float-mode: DISABLED;
+    -fx-padding: 6px;
+}

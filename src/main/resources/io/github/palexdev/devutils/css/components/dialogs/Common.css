@@ -1,0 +1,17 @@
+@import "../../Palette.css";
+
+.mfx-dialog {
+    -fx-background-color: -md-sys-color-surface-container;
+    -fx-background-radius: 20px;
+    -fx-border-color: -md-sys-color-outline;
+    -fx-border-radius: 20px;
+    -fx-padding: 12px;
+}
+
+.mfx-dialog HBox {
+    -fx-padding: 0px 0px 12px 0px;
+}
+
+.mfx-dialog .actions-pane {
+    -fx-padding: 12px 0px 0px 0px;
+}

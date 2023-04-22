@@ -1,0 +1,138 @@
+@import "../Palette.css";
+@import "../../fonts/Fonts.css";
+@import "../components/MFXScrollPane.css";
+
+.stack {
+    -fx-background-color: transparent;
+}
+
+.main-view {
+    -fx-background-color: -md-sys-color-surface-container-high;
+    -fx-background-radius: 20px;
+    -fx-border-color: -md-sys-color-outline;
+    -fx-border-radius: 20px;
+}
+
+/* Header */
+.main-view > .header {
+    -fx-padding: 12px;
+    -fx-min-height: 45px;
+    -fx-hgap: 12px;
+}
+
+.main-view > .header > .title {
+    -fx-font-family: "Roboto Regular";
+    -fx-font-weight: 400;
+    -fx-font-size: 24px;
+    -fx-line-spacing: 32px;
+    -fx-text-fill: -md-sys-color-on-surface;
+    -fx-background-color: -md-sys-color-surface-bright;
+    -fx-background-radius: 10px;
+    -fx-padding: 6px 24px 6px 24px;
+}
+
+.main-view > .header .header-icon {
+    -fx-background-color: #5b5c63;
+    -fx-background-radius: 100%;
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
+}
+
+.main-view > .header .header-icon .mfx-font-icon {
+    -mfx-color: white;
+    -mfx-size: 12px;
+    -fx-opacity: 0.0;
+}
+
+.main-view > .header .header-icon.aot:enabled .mfx-font-icon,
+.main-view > .header .header-icon:hover .mfx-font-icon {
+    -fx-opacity: 1.0;
+}
+
+.main-view > .header .header-icon.aot .mfx-font-icon {
+    -mfx-description: "fas-caret-up";
+}
+
+.main-view > .header .header-icon.minimize .mfx-font-icon {
+    -mfx-description: "fas-minus";
+}
+
+.main-view > .header .header-icon.maximize .mfx-font-icon {
+    -mfx-description: "fas-up-right-and-down-left-from-center";
+    -mfx-size: 10px;
+}
+
+.main-view > .header .header-icon.close .mfx-font-icon {
+    -mfx-description: "fas-xmark";
+}
+
+.main-view > .header .header-icon.aot:enabled,
+.main-view > .header .header-icon.aot:hover,
+.main-view:focus-within > .header .header-icon.aot {
+    -fx-background-color: -md-sys-color-primary;
+}
+
+.main-view > .header .header-icon.minimize:hover,
+.main-view:focus-within > .header .header-icon.minimize {
+    -fx-background-color: #f4c100;
+}
+
+.main-view > .header .header-icon.maximize:hover,
+.main-view:focus-within > .header .header-icon.maximize {
+    -fx-background-color: #9400f9;
+}
+
+.main-view > .header .header-icon.close:hover,
+.main-view:focus-within > .header .header-icon.close {
+    -fx-background-color: #f83515;
+}
+
+/* Content */
+#content {
+    -fx-padding: 12px 24px 24px 12px;
+}
+
+/* Sidebar */
+.main-view > .sidebar {
+    -fx-min-width: 40px;
+    -fx-padding: 48px 12px 12px 12px;
+    -fx-spacing: 24px;
+}
+
+.main-view > .sidebar > .fab-base.fab {
+    -fx-background-color: transparent;
+    -mfx-elevation: LEVEL0;
+}
+
+.main-view > .sidebar > .fab-base.fab .mfx-ripple-generator {
+    -mfx-ripple-color: rgba(103, 80, 164, 0.3);
+}
+
+.main-view > .sidebar > .fab-base.fab:hover,
+.main-view > .sidebar > .fab-base.fab:enabled {
+    -fx-background-color: -md-sys-color-surface-bright;
+}
+
+.main-view > .sidebar > .fab-base.fab:hover .mfx-font-icon,
+.main-view > .sidebar > .fab-base.fab:enabled .mfx-font-icon {
+    -mfx-color: -md-sys-color-primary;
+}
+
+/* Commons */
+#content .header {
+    -fx-font-family: "Roboto Regular";
+    -fx-font-weight: 500;
+    -fx-font-size: 22px;
+    -fx-line-spacing: 28px;
+    -fx-fill: -md-sys-color-on-surface;
+}
+
+#content .sub-header {
+    -fx-font-family: "Roboto Medium";
+    -fx-font-weight: 500;
+    -fx-font-size: 16px;
+    -fx-line-spacing: 24px;
+    -fx-fill: -md-sys-color-on-surface;
+}
+
+

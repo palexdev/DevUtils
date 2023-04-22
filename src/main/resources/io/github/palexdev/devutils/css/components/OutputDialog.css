@@ -1,0 +1,26 @@
+@import "dialogs/Common.css";
+
+.mfx-dialog {
+    -fx-min-height: 600px;
+}
+
+.mfx-dialog .mfx-icon-wrapper {
+    -fx-background-color: #5b5c63;
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
+}
+
+.mfx-dialog .mfx-font-icon {
+    -mfx-color: white;
+    -mfx-size: 13px;
+    -fx-opacity: 0.0;
+}
+
+.mfx-dialog .mfx-icon-wrapper:hover .mfx-font-icon {
+    -fx-opacity: 1.0;
+}
+
+.mfx-dialog #close:hover,
+.mfx-dialog:focus-within #close {
+    -fx-background-color: #ff4a2d;
+}

@@ -1,0 +1,87 @@
+plugins {
+    id 'application'
+    id 'java'
+    id 'org.openjfx.javafxplugin' version "$jfxPlugin"
+}
+
+group = 'io.github.palexdev'
+version = "$devutils"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring
+    implementation ("org.springframework.boot:spring-boot:$spring") {
+        exclude group: "org.springframework", module: "spring-jcl"
+    }
+    implementation("org.springframework.boot:spring-boot-autoconfigure:$spring") {
+        exclude group: "org.springframework", module: "spring-jcl"
+    }
+    implementation "commons-logging:commons-logging:$commonsLogging"
+    testImplementation ("org.springframework.boot:spring-boot-test:$spring") {
+        exclude group: "org.springframework", module: "spring-jcl"
+    }
+
+    // Deps
+    implementation "fr.brouillard.oss:cssfx:$cssfx"
+    implementation "io.github.palexdev:materialfx:$mfx"
+    implementation "io.github.palexdev:mfxcomponents:$mfxcomponents"
+    implementation "io.github.palexdev:mfxcore:$mfxcore"
+    implementation "io.github.palexdev:mfxeffects:$mfxeffects"
+    implementation "io.github.palexdev:mfxlocalization:$mfxlocalization"
+    implementation "io.github.palexdev:mfxresources:$mfxresources"
+    implementation "io.github.palexdev:virtualizedfx:$vfx"
+
+// TODO remove this
+    implementation "io.github.palexdev:scenicview:17+"
+
+// Test
+    testImplementation platform("org.junit:junit-bom:$junit")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+compileJava {
+    sourceCompatibility = "$jdk"
+    targetCompatibility = "$jdk"
+}
+
+compileTestJava {
+    sourceCompatibility = "$jdk"
+    targetCompatibility = "$jdk"
+    moduleOptions {
+        compileOnClasspath = true
+    }
+}
+
+test {
+    useJUnitPlatform()
+    moduleOptions {
+        runOnClasspath = true
+    }
+}
+
+javafx {
+    version = "$jfx"
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+application {
+    mainModule = "DevUtils"
+    mainClass = "io.github.palexdev.devutils.App"
+    applicationDefaultJvmArgs += ["-Dglass.disableGrab=true"]
+}
+
+// Enable Preview Features
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += "--enable-preview"
+}
+
+tasks.withType(Test).configureEach {
+    jvmArgs += "--enable-preview"
+}
+
+tasks.withType(JavaExec).configureEach {
+    jvmArgs += '--enable-preview'
+}

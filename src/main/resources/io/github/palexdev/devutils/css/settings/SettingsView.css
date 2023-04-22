@@ -1,0 +1,48 @@
+@import "../Palette.css";
+@import "../../fonts/Fonts.css";
+
+.settings-view {
+    -fx-background-color: -md-sys-color-surface-container-low;
+    -fx-background-radius: 20px;
+    -fx-padding: 12px;
+}
+
+/* Pane Icon */
+.settings-view > .mfx-icon-wrapper {
+    -mfx-size: 24px;
+    -mfx-round: true;
+}
+
+.settings-view > .mfx-icon-wrapper .mfx-font-icon {
+    -mfx-color: -md-sys-color-on-primary-container;
+}
+
+.settings-view > .mfx-icon-wrapper:hover {
+    -fx-background-color: -close-red;
+}
+
+.settings-view > .mfx-icon-wrapper:hover .mfx-font-icon {
+    -mfx-color: white;
+}
+
+/* Settings Section */
+.settings-view .settings-pane {
+    -fx-padding: 22px;
+}
+
+.settings-view .settings-pane .title {
+    -fx-font-family: "Roboto Regular";
+    -fx-font-weight: 500;
+    -fx-font-size: 22px;
+    -fx-line-spacing: 28px;
+    -fx-fill: -md-sys-color-on-surface;
+    -fx-padding: 0px 0px 24px 0px;
+}
+
+.settings-view .undo-icon .mfx-font-icon {
+    -mfx-color: -md-sys-color-on-surface;
+}
+
+.settings-view .undo-icon:hover {
+    -fx-background-color: -md-sys-color-surface-container-highest;
+}
